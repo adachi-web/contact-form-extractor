@@ -164,7 +164,9 @@ st.divider()
 if uploaded_file is not None:
     if st.button("🚀 処理開始", use_container_width=True, type="primary"):
         try:
-            df = pd.read_csv(uploaded_file, encoding='utf-8-sig')
+            from io import StringIO
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8-sig"))
+            df = pd.read_csv(stringio)
             
             progress_bar = st.progress(0)
             status_text = st.empty()
