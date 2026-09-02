@@ -391,7 +391,7 @@ st.divider()
 # 処理実行
 if uploaded_file is not None:
     if st.button("🚀 処理開始", use_container_width=True, type="primary"):
-        df = pd.read_csv(uploaded_file, encoding='utf-8-sig')
+       df = pd.read_csv(uploaded_file, encoding='utf-8-sig', on_bad_lines='skip', engine='python')
         
         # プログレス表示
         progress_bar = st.progress(0)
