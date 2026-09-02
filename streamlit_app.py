@@ -379,7 +379,7 @@ with col1:
 with col2:
     st.subheader("📊 ファイル情報")
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file, encoding='utf-8-sig')
         st.write(f"**行数**: {len(df)}")
         st.write(f"**列数**: {len(df.columns)}")
         st.write("**列一覧**:")
@@ -391,7 +391,7 @@ st.divider()
 # 処理実行
 if uploaded_file is not None:
     if st.button("🚀 処理開始", use_container_width=True, type="primary"):
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file, encoding='utf-8-sig')
         
         # プログレス表示
         progress_bar = st.progress(0)
